@@ -1,8 +1,10 @@
 export const insertionSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ): Promise<void> => {
+  setIsRunnin(true)
   let i = 1
   while (i < arr.length) {
     while (arr[i] < arr[i - 1]) {
@@ -15,4 +17,5 @@ export const insertionSort = async (
     }
     i++
   }
+  setIsRunnin(false)
 }

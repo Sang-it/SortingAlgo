@@ -1,9 +1,12 @@
 export const mergeSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ): Promise<void> => {
+  setIsRunnin(true)
   mSort(arr, 0, arr.length - 1, wait, setState)
+  setIsRunnin(false)
 }
 
 const merge = async (

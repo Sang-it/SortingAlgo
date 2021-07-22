@@ -1,8 +1,10 @@
 export const bubbleSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  setIsRunnin(true)
   const n = arr.length
   let temp: number
   let swapped: boolean
@@ -20,4 +22,5 @@ export const bubbleSort = async (
     }
     if (swapped === false) break
   }
+  setIsRunnin(false)
 }

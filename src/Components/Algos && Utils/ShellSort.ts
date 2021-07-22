@@ -1,9 +1,12 @@
 export const shellSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  setIsRunnin(true)
   const gaps = [66, 31, 14, 5, 1]
+
   for (let gap of gaps) {
     for (let i = gap; i < arr.length; i++) {
       let temp = arr[i]
@@ -20,4 +23,5 @@ export const shellSort = async (
       setState([...arr])
     }
   }
+  setIsRunnin(false)
 }

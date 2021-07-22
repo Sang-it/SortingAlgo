@@ -1,9 +1,12 @@
 export const heapSort = (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  setIsRunnin(true)
   hSort(arr, wait, setState)
+  setIsRunnin(false)
 }
 
 const hSort = async (

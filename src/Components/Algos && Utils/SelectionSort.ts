@@ -1,8 +1,10 @@
 export const selectionSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ): Promise<void> => {
+  setIsRunnin(true)
   let i = 0
   while (i < arr.length) {
     let min = i
@@ -20,4 +22,5 @@ export const selectionSort = async (
     }
     i++
   }
+  setIsRunnin(false)
 }

@@ -1,9 +1,12 @@
 export const quickSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ): Promise<void> => {
+  setIsRunnin(true)
   qSort(arr, 0, arr.length, wait, setState)
+  setIsRunnin(false)
 }
 
 const qSort = async (

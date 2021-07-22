@@ -1,9 +1,12 @@
 export const combSort = (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ): void => {
+  setIsRunnin(true)
   cSort(arr, wait, setState)
+  setIsRunnin(false)
 }
 
 const getNextGap = (gap: number): number => {

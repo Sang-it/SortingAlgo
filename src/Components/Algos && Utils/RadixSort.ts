@@ -1,8 +1,11 @@
 export const radixSort = async (
   arr: number[],
   wait: (ms: number) => Promise<null>,
-  setState: React.Dispatch<React.SetStateAction<number[]>>
+  setState: React.Dispatch<React.SetStateAction<number[]>>,
+
+  setIsRunnin: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  setIsRunnin(true)
   const maxNum = Math.max(...arr) * 10
   let divisor = 10
 
@@ -20,4 +23,5 @@ export const radixSort = async (
     setState([...arr])
     divisor *= 10
   }
+  setIsRunnin(false)
 }

@@ -21,6 +21,7 @@ export const Graph = () => {
   const toast = useToast()
   const [state, setState] = useState<number[]>(arr)
   const [select, setSelect] = useState<string>("")
+  const [isRunning, setIsRunning] = useState<boolean>(false)
 
   const arrToSort = useRef(arr)
 
@@ -28,39 +29,39 @@ export const Graph = () => {
     if (select) {
       switch (select) {
         case "Insertion":
-          insertionSort(arrToSort.current, wait, setState)
+          insertionSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Selection":
-          selectionSort(arrToSort.current, wait, setState)
+          selectionSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Quick":
-          quickSort(arrToSort.current, wait, setState)
+          quickSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Merge":
-          mergeSort(arrToSort.current, wait, setState)
+          mergeSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Bubble":
-          bubbleSort(arrToSort.current, wait, setState)
+          bubbleSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Heap":
-          heapSort(arrToSort.current, wait, setState)
+          heapSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Shell":
-          shellSort(arrToSort.current, wait, setState)
+          shellSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Comb":
-          combSort(arrToSort.current, wait, setState)
+          combSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         case "Radix":
-          radixSort(arrToSort.current, wait, setState)
+          radixSort(arrToSort.current, wait, setState, setIsRunning)
           break
 
         default:
@@ -125,6 +126,7 @@ export const Graph = () => {
           onClick={() => newArray()}
           _hover={{ bgColor: "white", color: "black" }}
           _focus={{}}
+          disabled={isRunning}
         >
           New Array
         </Button>
@@ -135,6 +137,7 @@ export const Graph = () => {
           color="#ede5e5"
           _hover={{ bgColor: "white", color: "black" }}
           _focus={{}}
+          disabled={isRunning}
         >
           Sort
         </Button>
